@@ -1,0 +1,100 @@
+/* 🌊 Fullscreen Container */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  font-family: "Poppins", sans-serif;
+}
+
+/* 💎 Stylish Form Card */
+.auth-form {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  width: 380px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* 🧢 Heading */
+.auth-form h2 {
+  margin-bottom: 1.5rem;
+  color: #2563eb;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+/* ✏️ Input Fields */
+.auth-form input {
+  display: block;
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #1e293b;
+  border-radius: 12px;
+  outline: none;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.auth-form input:focus {
+  border-color: #2563eb;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* 🔘 Button */
+.auth-form button {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0.9rem;
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.auth-form button:hover {
+  background: #1e40af;
+  transform: scale(1.03);
+}
+
+/* ⚠️ Error Message */
+.error {
+  color: #dc2626;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* 👣 Footer Text */
+p {
+  padding: 1rem 0;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+p a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
