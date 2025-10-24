@@ -3,8 +3,9 @@
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
-![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+![ASP.NET](https://img.shields.io/badge/ASP.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
+![Web API](https://img.shields.io/badge/Web_API_2-0078D4?style=for-the-badge&logo=.net&logoColor=white)
 
 A comprehensive React-based web application for managing and searching medicines available in Pakistan.
 
@@ -29,16 +30,56 @@ This project provides a user-friendly interface to browse, search, and manage in
 
 ### Prerequisites
 
-- Node.js (v14 or higher)
+- Node.js (v14 or higher) for frontend
 - npm or yarn package manager
+- Visual Studio 2015 or higher
+- .NET Framework 4.5 or higher
+- SQL Server 2012 or higher
+- IIS (Internet Information Services) for deployment
 
 ### Installation
+
+#### Backend Setup (ASP.NET Web API)
 
 1. Clone the repository:
 
 ```bash
 git clone https://github.com/yourusername/medicine-database-pakistan.git
-cd medicine-database-pakistan
+```
+
+2. Open the backend solution in Visual Studio:
+
+```
+cd medicine-database-pakistan/backend
+Open MedicineDatabaseAPI.sln in Visual Studio
+```
+
+3. Update the connection string in `Web.config`:
+
+```xml
+<connectionStrings>
+  <add name="MedicineDBContext"
+       connectionString="Server=your_server;Database=MedicineDB;Trusted_Connection=True;"
+       providerName="System.Data.SqlClient" />
+</connectionStrings>
+```
+
+4. Run database migrations:
+
+```
+Update-Database
+```
+
+5. Build and run the API project (Press F5 in Visual Studio)
+
+The API will be available at `http://localhost:PORT/api/`
+
+#### Frontend Setup (React)
+
+1. Navigate to the frontend directory:
+
+```bash
+cd medicine-database-pakistan/frontend
 ```
 
 2. Install dependencies:
@@ -47,13 +88,19 @@ cd medicine-database-pakistan
 npm install
 ```
 
-3. Start the development server:
+3. Update the API URL in `src/config.js`:
+
+```javascript
+export const API_BASE_URL = "http://localhost:PORT/api";
+```
+
+4. Start the development server:
 
 ```bash
 npm start
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+5. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes. You may also see any lint errors in the console.
 
@@ -81,32 +128,59 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 
 ## 🛠️ Built With
 
+### Frontend
+
 - **React JS** - Frontend framework
 - **Create React App** - Project setup and build configuration
 - **React Router** - Navigation and routing
 - **CSS3** - Styling and responsive design
+- **Axios** - HTTP client for API calls
+
+### Backend
+
+- **ASP.NET Web API 2** - RESTful API backend
+- **C#** - Backend programming language
+- **Entity Framework** - ORM for database operations
+- **SQL Server** - Database management system
 
 ## 📁 Project Structure
 
 ```
 medicine-database-pakistan/
-├── public/
-│   ├── index.html
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   ├── SearchBar.js
-│   │   ├── MedicineList.js
-│   │   ├── MedicineDetails.js
-│   │   └── FilterPanel.js
-│   ├── data/
-│   │   └── medicines.json
-│   ├── utils/
-│   │   └── searchHelper.js
-│   ├── App.js
-│   ├── App.css
-│   └── index.js
-├── package.json
+├── backend/
+│   ├── MedicineDatabaseAPI/
+│   │   ├── Controllers/
+│   │   │   ├── MedicinesController.cs
+│   │   │   ├── CategoriesController.cs
+│   │   │   └── ManufacturersController.cs
+│   │   ├── Models/
+│   │   │   ├── Medicine.cs
+│   │   │   ├── Category.cs
+│   │   │   └── Manufacturer.cs
+│   │   ├── Data/
+│   │   │   └── MedicineDBContext.cs
+│   │   ├── Web.config
+│   │   └── Global.asax
+│   └── MedicineDatabaseAPI.sln
+├── frontend/
+│   ├── public/
+│   │   ├── index.html
+│   │   └── favicon.ico
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── SearchBar.js
+│   │   │   ├── MedicineList.js
+│   │   │   ├── MedicineDetails.js
+│   │   │   └── FilterPanel.js
+│   │   ├── services/
+│   │   │   └── medicineService.js
+│   │   ├── utils/
+│   │   │   └── searchHelper.js
+│   │   ├── config.js
+│   │   ├── App.js
+│   │   ├── App.css
+│   │   └── index.js
+│   └── package.json
 └── README.md
 ```
 
